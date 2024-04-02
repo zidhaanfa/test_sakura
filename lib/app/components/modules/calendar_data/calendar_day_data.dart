@@ -1,5 +1,10 @@
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../config/base_data.dart';
+import '../../../modules/calendar/bindings/calendar_binding.dart';
+import '../../../modules/calendar/views/calendar_detail_view.dart';
 
 class CalendarDayData extends StatelessWidget {
   final GlobalKey<DayViewState>? stateDay;
@@ -15,6 +20,10 @@ class CalendarDayData extends StatelessWidget {
     return DayView(
       key: stateDay,
       width: width,
+      headerStyle: HeaderStyle(
+          decoration: BoxDecoration(
+        color: ZFOtherColors.green.withOpacity(0.4),
+      )),
       startDuration: Duration(hours: 8),
       showHalfHours: true,
       heightPerMinute: 3,
@@ -35,6 +44,14 @@ class CalendarDayData extends StatelessWidget {
         showTime: true,
         showTimeBackgroundView: true,
       ),
+      onEventTap: (event, date) {
+        Get.to(
+          () => CalendarDetailView(
+            event: event.first,
+          ),
+          binding: CalendarBinding(),
+        );
+      },
     );
   }
 

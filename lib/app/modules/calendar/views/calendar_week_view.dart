@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_sakura/app/config/base_data.dart';
 
+import '../../../components/functions/calendar_func/create_event.dart';
 import '../../../components/modules/calendar_data/calendar_week_data.dart';
+import '../bindings/calendar_binding.dart';
+import '../controllers/calendar_controller.dart';
 
-class CalendarWeekView extends StatelessWidget {
+class CalendarWeekView extends GetView<CalendarController> {
   CalendarWeekView({
     Key? key,
   }) : super(key: key);
@@ -15,9 +20,18 @@ class CalendarWeekView extends StatelessWidget {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        backgroundColor: ZFButtonColors.buttonColorGreen,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         elevation: 8,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(
+            () => CreateEvent(),
+            binding: CalendarBinding(),
+          );
+        },
       ),
       body: CalendarWeekData(),
     );

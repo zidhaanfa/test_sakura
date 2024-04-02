@@ -124,10 +124,10 @@ class AppConstants {
   AppConstants._();
 
   static OutlineInputBorder inputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(7),
+    borderRadius: BorderRadius.circular(20),
     borderSide: BorderSide(
       width: 2,
-      color: ZFOtherColors.lightBlue,
+      color: ZFOtherColors.darkGreen,
     ),
   );
 

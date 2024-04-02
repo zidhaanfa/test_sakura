@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:test_sakura/app/modules/calendar/bindings/calendar_binding.dart';
 
 import '../../../components/widgets/ZF_ElevatedButton.dart';
 import '../../../config/base_data.dart';
@@ -26,9 +27,12 @@ class HomeView extends GetView<HomeController> {
             child: Center(
               child: ZFElevatedButton(
                 onPressed: () {
-                  Get.to(() => CalendarDayView());
+                  Get.to(
+                    () => CalendarDayView(),
+                    binding: CalendarBinding(),
+                  );
                 },
-                color: ZFButtonColors.buttonColorBlue,
+                color: ZFButtonColors.buttonColorGreen,
                 radius: 25,
                 name: 'Day View',
                 height: 50,
@@ -41,9 +45,12 @@ class HomeView extends GetView<HomeController> {
             child: Center(
               child: ZFElevatedButton(
                 onPressed: () {
-                  Get.to(() => CalendarWeekView());
+                  Get.to(
+                    () => CalendarWeekView(),
+                    binding: CalendarBinding(),
+                  );
                 },
-                color: ZFButtonColors.buttonColorBlue,
+                color: ZFButtonColors.buttonColorGreen,
                 radius: 25,
                 name: 'Week View',
                 height: 50,
@@ -56,9 +63,12 @@ class HomeView extends GetView<HomeController> {
             child: Center(
               child: ZFElevatedButton(
                 onPressed: () {
-                  Get.to(() => CalendarMonthView());
+                  Get.to(
+                    () => CalendarMonthView(),
+                    binding: CalendarBinding(),
+                  );
                 },
-                color: ZFButtonColors.buttonColorBlue,
+                color: ZFButtonColors.buttonColorGreen,
                 radius: 25,
                 name: 'Month View',
                 height: 50,
