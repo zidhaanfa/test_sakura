@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:test_sakura/app/components/modules/calendar_data/calendar_month_data.dart';
 
-class CalendarMonthView extends StatelessWidget {
+import '../../../components/functions/calendar_func/create_event.dart';
+import '../../../config/base_data.dart';
+import '../bindings/calendar_binding.dart';
+import '../controllers/calendar_controller.dart';
+
+class CalendarMonthView extends GetView<CalendarController> {
   CalendarMonthView({
     Key? key,
   }) : super(key: key);
@@ -14,9 +20,18 @@ class CalendarMonthView extends StatelessWidget {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        backgroundColor: ZFButtonColors.buttonColorGreen,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         elevation: 8,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(
+            () => CreateEvent(),
+            binding: CalendarBinding(),
+          );
+        },
       ),
       body: CalendarMonthData(),
     );

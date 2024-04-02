@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../components/functions/calendar_func/create_event.dart';
 import '../../../components/modules/calendar_data/calendar_day_data.dart';
+import '../../../config/base_data.dart';
+import '../bindings/calendar_binding.dart';
 import '../controllers/calendar_controller.dart';
 
 class CalendarDayView extends GetView<CalendarController> {
@@ -17,9 +20,18 @@ class CalendarDayView extends GetView<CalendarController> {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        backgroundColor: ZFButtonColors.buttonColorGreen,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         elevation: 8,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(
+            () => CreateEvent(),
+            binding: CalendarBinding(),
+          );
+        },
       ),
       body: CalendarDayData(),
     );

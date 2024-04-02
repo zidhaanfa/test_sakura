@@ -1,6 +1,9 @@
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../config/base_data.dart';
+import '../../../modules/calendar/bindings/calendar_binding.dart';
 import '../../../modules/calendar/views/calendar_detail_view.dart';
 
 class CalendarMonthData extends StatelessWidget {
@@ -17,13 +20,16 @@ class CalendarMonthData extends StatelessWidget {
     return MonthView(
       key: stateMonth,
       width: width,
+      headerStyle: HeaderStyle(
+          decoration: BoxDecoration(
+        color: ZFOtherColors.green.withOpacity(0.4),
+      )),
       onEventTap: (event, date) {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => CalendarDetailView(
-              event: event,
-            ),
+        Get.to(
+          () => CalendarDetailView(
+            event: event,
           ),
+          binding: CalendarBinding(),
         );
       },
     );
